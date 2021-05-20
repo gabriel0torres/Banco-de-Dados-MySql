@@ -1,0 +1,141 @@
+NOME: GABRIEL TORRES SANTOS
+
+
+1) Listar (unidade.nome, professor.nome, disciplina.nome) das
+disciplinas que possuem a palavra "programação" em seu nome
+
+MariaDB [Atividade01]> SELECT disciplina.nome, professor.nome, unidade.nome from
+disciplina INNER join professor on disciplina.disc_professor = professor.rf AND
+disciplina.nome like '%programação%' join unidade on unidade.un_professor = professor.rf;
++--------------------+----------+--------------+
+| nome               | nome     | nome         |
++--------------------+----------+--------------+
+| programação mobile | Maria    | Berrini      |
+| programação web    | Fernanda | Vila Mariana |
++--------------------+----------+--------------+
+2 rows in set (0.001 sec)
+
+2) Listar (disciplina.nome) de professores que tiveram nota de avaliação acima da média
+
+MariaDB [Atividade01]> select disciplina.nome from disciplina
+join professor on professor.rf = disciplina.disc_professor and professor.mediaavaliacao > 8;
++---------------------+
+| nome                |
++---------------------+
+| banco de dados      |
+| análise de sistemas |
+| segurança digital   |
++---------------------+
+3 rows in set (0.001 sec)
+
+3) Listar (nome) dos professores que trabalham em Santo Amaro ou ministram na disciplina de redes.
+
+MariaDB [Atividade01]> SELECT professor.nome from professor join unidade 
+on unidade.nome = 'Santo Amaro' and unidade.un_professor = professor.rf;
++------+
+| nome |
++------+
+| Ana  |
++------+
+1 row in set (0.000 sec)
+
+4) Listar (nome) dos professores que ministram disciplinas com notas acima da média
+
+MariaDB [Atividade01]> SELECT professor.nome from professor 
+join disciplina on professor.rf = disciplina.disc_professor and disciplina.notadisciplina > 8;
++----------+
+| nome     |
++----------+
+| João     |
+| Maria    |
+| Fernanda |
+| Antonio  |
++----------+
+4 rows in set (0.001 sec)
+
+5) Listar (nome) das disciplinas que tiveram a maior nota
+
+MariaDB [Atividade01]> SELECT disciplina.nome from disciplina WHERE disciplina.notadisciplina = 10;
++-------------------+
+| nome              |
++-------------------+
+| banco de dados    |
+| segurança digital |
++-------------------+
+2 rows in set (0.001 sec)
+
+6) Lista (nome) das disciplinas que tiveram a menor nota
+
+MariaDB [Atividade01]> SELECT MIN(notadisciplina), disciplina.nome from disciplina;
++---------------------+----------------+
+| MIN(notadisciplina) | nome           |
++---------------------+----------------+
+|                   5 | banco de dados |
++---------------------+----------------+
+1 row in set (0.000 sec)
+
+7) Listar (nome) dos professores que tiveram nota acima da média ou que ministram disciplina que tiveram nota acima da média
+
+MariaDB [Atividade01]> SELECT professor.nome from professor INNER JOIN disciplina
+    -> on professor.mediaavaliacao > 8 
+and disciplina.disc_professor = professor.rf or disciplina.notadisciplina > 8 
+and disciplina.disc_professor = professor.rf;
++----------+
+| nome     |
++----------+
+| João     |
+| Maria    |
+| Fernanda |
+| José     |
+| Antonio  |
++----------+
+5 rows in set (0.000 sec)
+
+8) Listar (nome) dos professores que ministram disciplinas de programação web e/ou banco de dados ou que ministram disciplinas com a maior nota
+
+MariaDB [Atividade01]> SELECT professor.nome from professor INNER JOIN disciplina WHERE disciplina.disc_professor = professor.rf
+    -> and disciplina.nome in ('programação web','banco de dados') or  disciplina.disc_professor = professor.rf
+    -> and disciplina.notadisciplina = '10';
++----------+
+| nome     |
++----------+
+| João     |
+| Fernanda |
+| Antonio  |
++----------+
+3 rows in set (0.000 sec)
+
+9) Listar a quantidade (professores) que ministram disciplinas com notas abaixo da média
+
+MariaDB [Atividade01]> SELECT COUNT(professor.nome) FROM professor join disciplina on disciplina.disc_professor = professor.rf and disciplina.notadisciplina < 8;
++-----------------------+
+| COUNT(professor.nome) |
++-----------------------+
+|                     2 |
++-----------------------+
+1 row in set (0.000 sec)
+
+10) Listar (nome) das disciplinas que tem como professores a Maria ou o José
+
+MariaDB [Atividade01]> SELECT disciplina.nome from disciplina INNER join professor on disciplina.disc_professor = professor.rf and professor.nome in ('Maria','José');
++---------------------+
+| nome                |
++---------------------+
+| programação mobile  |
+| análise de sistemas |
++---------------------+
+2 rows in set (0.000 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

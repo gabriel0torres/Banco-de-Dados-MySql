@@ -1,0 +1,116 @@
+MariaDB [atividade2]> insert into professor (nome,cpf,mediaavaliacao) values ('joão','1234','9');
+Query OK, 1 row affected (0.074 sec)
+
+MariaDB [atividade2]> insert into professor (nome,cpf,mediaavaliacao) values ('maria','1235','8');
+Query OK, 1 row affected (0.091 sec)
+
+MariaDB [atividade2]> insert into professor (nome,cpf,mediaavaliacao) values ('fernanda','1236','7');
+Query OK, 1 row affected (0.045 sec)
+
+MariaDB [atividade2]> insert into professor (nome,cpf,mediaavaliacao) values ('josé','1237','9');
+Query OK, 1 row affected (0.059 sec)
+
+MariaDB [atividade2]> insert into professor (nome,cpf,mediaavaliacao) values ('ana','1238','6');
+Query OK, 1 row affected (0.049 sec)
+
+MariaDB [atividade2]> insert into professor (nome,cpf,mediaavaliacao) values ('antonio','1239','10');
+Query OK, 1 row affected (0.039 sec)
+
+MariaDB [atividade2]> select * from professor;
++----+----------+------+----------------+
+| rf | nome     | cpf  | mediaavaliacao |
++----+----------+------+----------------+
+|  1 | joão     | 1234 |              9 |
+|  2 | maria    | 1235 |              8 |
+|  3 | fernanda | 1236 |              7 |
+|  4 | josé     | 1237 |              9 |
+|  5 | ana      | 1238 |              6 |
+|  6 | antonio  | 1239 |             10 |
++----+----------+------+----------------+
+6 rows in set (0.001 sec)
+
+MariaDB [atividade2]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('banco de dados','ciência da computação','1','10');
+Query OK, 1 row affected (0.068 sec)
+
+MariaDB [atividade2]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('programção mobile','ciência da computação','2','9');
+Query OK, 1 row affected (0.038 sec)
+
+MariaDB [atividade2]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('programção web','ciência da computação','3','9');
+Query OK, 1 row affected (0.056 sec)
+
+MariaDB [atividade2]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('análise de sistemas','ciência da computação','4','7');
+Query OK, 1 row affected (0.041 sec)
+
+MariaDB [atividade2]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('redes','ciência da computação','5','5');
+Query OK, 1 row affected (0.051 sec)
+
+MariaDB [atividade2]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('segurança digital','ciência da computação','6','10');
+Query OK, 1 row affected (0.047 sec)
+
+MariaDB [atividade2]> select * from disciplina;
++--------+---------------------+-----------------------+----------------+----------------+
+| iddisc | nome                | curso                 | disc_professor | notadisciplina |
++--------+---------------------+-----------------------+----------------+----------------+
+|      1 | banco de dados      | ciência da computação |              1 |             10 |
+|      2 | programção mobile   | ciência da computação |              2 |              9 |
+|      3 | programção web      | ciência da computação |              3 |              9 |
+|      4 | análise de sistemas | ciência da computação |              4 |              7 |
+|      5 | redes               | ciência da computação |              5 |              5 |
+|      6 | segurança digital   | ciência da computação |              6 |             10 |
++--------+---------------------+-----------------------+----------------+----------------+
+6 rows in set (0.000 sec)
+
+MariaDB [atividade2]> insert into unidade (nome,un_professor) values ('vergueiro','1');
+Query OK, 1 row affected (0.056 sec)
+
+MariaDB [atividade2]> insert into unidade (nome,un_professor) values ('berrini','2');
+Query OK, 1 row affected (0.045 sec)
+
+MariaDB [atividade2]> insert into unidade (nome,un_professor) values ('vila mariana','3');
+Query OK, 1 row affected (0.041 sec)
+
+MariaDB [atividade2]> insert into unidade (nome,un_professor) values ('paulista','4');
+Query OK, 1 row affected (0.046 sec)
+
+MariaDB [atividade2]> insert into unidade (nome,un_professor) values ('tatuapé','5');
+Query OK, 1 row affected (0.053 sec)
+
+MariaDB [atividade2]> insert into unidade (nome,un_professor) values ('santo amaro','6');
+Query OK, 1 row affected (0.077 sec)
+
+MariaDB [atividade2]> select * from unidade;
++--------+--------------+--------------+
+| idunid | nome         | un_professor |
++--------+--------------+--------------+
+|      1 | vergueiro    |            1 |
+|      2 | berrini      |            2 |
+|      3 | vila mariana |            3 |
+|      4 | paulista     |            4 |
+|      5 | tatuapé      |            5 |
+|      6 | santo amaro  |            6 |
++--------+--------------+--------------+
+6 rows in set (0.000 sec)
+
+MariaDB [atividade2]> update unidade set un_professor = 5 where idunid = 6;
+Query OK, 1 row affected (0.145 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [atividade2]> update unidade set un_professor = 6 where idunid = 5;
+Query OK, 1 row affected (0.048 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [atividade2]> select * from unidade;
++--------+--------------+--------------+
+| idunid | nome         | un_professor |
++--------+--------------+--------------+
+|      1 | vergueiro    |            1 |
+|      2 | berrini      |            2 |
+|      3 | vila mariana |            3 |
+|      4 | paulista     |            4 |
+|      5 | tatuapé      |            6 |
+|      6 | santo amaro  |            5 |
++--------+--------------+--------------+
+6 rows in set (0.000 sec)
+
+
+

@@ -1,0 +1,35 @@
+select * from unidade inner join professor inner join  disciplina;
+
+select professor.nome, disciplina.nome, unidade.nome from professor
+left join unidade on unidade.un_professor=professor.rf 
+left join disciplina on disciplina.disc_professor=professor.rf 
+where disciplina.nome = 'redes' or unidade.nome = 'Paulista';
+
+select professor.cpf, professor.nome from professor
+LEFT join disciplina on disciplina.disc_professor = professor.rf
+WHERE disciplina.nome like '%programação%';
+
+select * from professor inner join unidade on professor.rf = unidade.un_professor
+inner join disciplina on disciplina.disc_professor = professor.rf  LIMIT 2;
+
+select unidade.nome from unidade inner join professor on professor.rf = unidade.un_professor
+ where professor.mediaavaliacao > (SELECT avg (mediaavaliacao) from professor);
+
+SELECT professor.nome from professor INNER join disciplina on disciplina.disc_professor = professor.rf
+where disciplina.notadisciplina > (SELECT AVG(notadisciplina) from disciplina);
+
+SELECT * from unidade INNER join disciplina on unidade.idunid = disciplina.iddisc WHERE
+disciplina.notadisciplina > (SELECT AVG(notadisciplina) from disciplina);
+
+SELECT COUNT(*)
+FROM professor INNER join disciplina on professor.rf = disciplina.disc_professor
+INNER join unidade on unidade.un_professor = professor.rf;
+
+SELECT professor.nome from professor WHERE 
+professor.mediaavaliacao > (SELECT avg(mediaavaliacao) FROM professor);
+
+
+
+
+
+

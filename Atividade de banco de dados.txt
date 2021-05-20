@@ -1,0 +1,104 @@
+NOME: GABRIEL TORRES SANTOS
+
+
+
+
+create database automoveis;
+
+create table carros(
+    -> codigodocarro int not null auto_increment,
+    -> marca char(11) not null,
+    ->  modelo char(11) not null,
+    -> precouni numeric (9,2) not null,
+    -> cilindrada numeric(9) not null,
+    -> nrportas numeric(1) not null,
+    -> descproduto varchar(500) not null,
+    -> primary key (codigodocarro)
+    -> );
+
+create table compras(
+    -> codigodacompra int not null auto_increment,
+    -> primary key(codigodacompra),
+    -> codigodocarro int not null,
+    -> foreign key(codigodocarro) references carros (codigodocarro),
+    -> codigodofornecedor int not null,
+    ->  datadacompra date null,
+    -> precocompra numeric(9,2) null,
+    -> cor char(11) null
+    -> );
+
+create table fornecedores(
+    -> codigodofornecedor int not null auto_increment,
+    -> primary key(codigodofornecedor),
+    -> nomedaempresa varchar(11) not null,
+    -> endereco varchar(20) null,
+    -> codigopostal int,
+    -> localidade varchar(11),
+    -> telefone int,
+    -> nrcontribuinte int not null,
+    -> contato int
+    -> );
+
+create table vendas(
+    -> codigodacompra int not null auto_increment,
+    -> foreign key(codigodacompra) references compras(codigodacompra),
+    -> nrBI_Cliente int not null,
+    -> codigodovendedor int not null,
+    -> preco numeric (9,2),
+    -> data date,
+    -> formadepagamento char(11)
+    -> );
+
+create table clientes(
+    -> nrBI int not null primary key,
+    -> nome char not null,
+    -> endereco varchar(20),
+    -> codigopostal int,
+    -> localidade char,
+    -> telefone int,
+    -> datadenascimento date,
+    -> nrcontribuinte int
+    -> );
+
+create table vendedores(
+    -> codigodovendedor int not null primary key auto_increment,
+    -> nome char not null,
+    -> endereco varchar(20),
+    -> codigopostal int,
+    -> localidade char,
+    -> telefone int,
+    -> nrcontribuinte int,
+    -> nrBI int
+    -> );
+
+desc fornecedores;
++--------------------+-------------+------+-----+---------+----------------+
+| Field              | Type        | Null | Key | Default | Extra          |
++--------------------+-------------+------+-----+---------+----------------+
+| codigodofornecedor | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nomedaempresa      | varchar(11) | NO   |     | NULL    |                |
+| endereco           | varchar(20) | YES  |     | NULL    |                |
+| codigopostal       | int(11)     | YES  |     | NULL    |                |
+| localidade         | varchar(11) | YES  |     | NULL    |                |
+| telefone           | int(11)     | YES  |     | NULL    |                |
+| nrcontribuinte     | int(11)     | NO   |     | NULL    |                |
+| contato            | int(11)     | YES  |     | NULL    |                |
++--------------------+-------------+------+-----+---------+----------------+
+
+desc clientes;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| nrBI             | int(11)     | NO   | PRI | NULL    |       |
+| nome             | char(1)     | NO   |     | NULL    |       |
+| endereco         | varchar(20) | YES  |     | NULL    |       |
+| codigopostal     | int(11)     | YES  |     | NULL    |       |
+| localidade       | char(1)     | YES  |     | NULL    |       |
+| telefone         | int(11)     | YES  |     | NULL    |       |
+| datadenascimento | date        | YES  |     | NULL    |       |
+| nrcontribuinte   | int(11)     | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+
+drop database automoveis;
+
+

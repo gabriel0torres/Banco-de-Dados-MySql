@@ -1,0 +1,51 @@
+    
+mysql> delimiter $$
+mysql> create procedure apagaprof(in id int)
+-> begin
+-> if(id >0) then
+-> delete from professor where rf= id;
+-> else
+-> select 'Entre com um dado no registro' As Msg;
+-> end if;
+-> end $$
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter ;
+
+    
+mysql> delimiter $$
+mysql> create procedure cadastroprof(in nome1 varchar(50), in cpf1 varchar(30),in mediaavaliacao1 varchar(30))
+-> begin
+-> if(nome1 != '') then
+-> insert into professor (nome, cpf, mediaavaliacao) values (nome1, cpf1, mediaavaliacao1);
+-> else
+-> select 'É necessário preencher pelo menos o nome' As Msg;
+-> end if;
+-> end $$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delimiter ;
+
+    
+call cadastroprof('', '', '');
+
+call cadastroprof('Adelia', '123478', '10');
+
+    
+mysql> delimiter $$
+mysql> create procedure contador (in valor Integer)
+-> begin
+-> declare cont int default 0;
+-> declare soma int default 0;
+-> while cont<valor do
+-> set cont = cont +1;
+-> set soma = soma + cont;
+-> end while;
+-> select soma;
+-> end $$
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter ;
+mysql>
+mysql>
+mysql> call contador(3);

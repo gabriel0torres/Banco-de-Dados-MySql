@@ -1,0 +1,169 @@
+MariaDB [atividade1]> insert into professor (nome,cpf,mediaavaliacao) values ('João','1234','9');
+Query OK, 1 row affected (0.048 sec)
+
+MariaDB [atividade1]> insert into professor (nome,cpf,mediaavaliacao) values ('Maria','1235','8');
+Query OK, 1 row affected (0.047 sec)
+
+MariaDB [atividade1]> insert into professor (nome,cpf,mediaavaliacao) values ('Fernanda','1236','7');
+Query OK, 1 row affected (0.062 sec)
+
+MariaDB [atividade1]> insert into professor (nome,cpf,mediaavaliacao) values ('José','1237','9');
+Query OK, 1 row affected (0.035 sec)
+
+MariaDB [atividade1]> insert into professor (nome,cpf,mediaavaliacao) values ('Ana','1238','6');
+Query OK, 1 row affected (0.042 sec)
+
+MariaDB [atividade1]> insert into professor (nome,cpf,mediaavaliacao) values ('Antonio','1239','10');
+Query OK, 1 row affected (0.055 sec)
+
+MariaDB [atividade1]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('banco de dados','Ciência Da Computação','1','10');
+Query OK, 1 row affected (0.075 sec)
+
+MariaDB [atividade1]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('programação mobile','Ciência Da Computação','2','9');
+Query OK, 1 row affected (0.075 sec)
+
+MariaDB [atividade1]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('programação web','Ciência Da Computação','3','9');
+Query OK, 1 row affected (0.056 sec)
+
+MariaDB [atividade1]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('análise de sistemas','Ciência Da Computação','4','7');
+Query OK, 1 row affected (0.090 sec)
+
+MariaDB [atividade1]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('redes','Ciência Da Computação','5','5');
+Query OK, 1 row affected (0.109 sec)
+
+MariaDB [atividade1]> insert into disciplina (nome,curso,disc_professor,notadisciplina) values ('segurança digital','Ciência Da Computação','6','10');
+Query OK, 1 row affected (0.062 sec)
+
+MariaDB [atividade1]> insert into unidade (nome,un_professor) values ('vergueiro','1');
+Query OK, 1 row affected (0.042 sec)
+
+MariaDB [atividade1]> insert into unidade (nome,un_professor) values ('berrini','2');
+Query OK, 1 row affected (0.073 sec)
+
+MariaDB [atividade1]> insert into unidade (nome,un_professor) values ('vila mariana','3');
+Query OK, 1 row affected (0.055 sec)
+
+MariaDB [atividade1]> insert into unidade (nome,un_professor) values ('paulista','4');
+Query OK, 1 row affected (0.136 sec)
+
+MariaDB [atividade1]> insert into unidade (nome,un_professor) values ('tatuapé','6');
+Query OK, 1 row affected (0.032 sec)
+
+MariaDB [atividade1]> insert into unidade (nome,un_professor) values ('santo amaro','5');
+Query OK, 1 row affected (0.073 sec)
+
+MariaDB [atividade1]> select * from professor;
++----+----------+------+----------------+
+| rf | nome     | cpf  | mediaavaliacao |
++----+----------+------+----------------+
+|  1 | João     | 1234 |              9 |
+|  2 | Maria    | 1235 |              8 |
+|  3 | Fernanda | 1236 |              7 |
+|  4 | José     | 1237 |              9 |
+|  5 | Ana      | 1238 |              6 |
+|  6 | Antonio  | 1239 |             10 |
++----+----------+------+----------------+
+6 rows in set (0.025 sec)
+
+MariaDB [atividade1]> select * from disciplina;
++--------+---------------------+-----------------------+----------------+----------------+
+| iddisc | nome                | curso                 | disc_professor | notadisciplina |
++--------+---------------------+-----------------------+----------------+----------------+
+|      1 | banco de dados      | Ciência Da Computação |              1 |             10 |
+|      2 | programação mobile  | Ciência Da Computação |              2 |              9 |
+|      3 | programação web     | Ciência Da Computação |              3 |              9 |
+|      4 | análise de sistemas | Ciência Da Computação |              4 |              7 |
+|      5 | redes               | Ciência Da Computação |              5 |              5 |
+|      6 | segurança digital   | Ciência Da Computação |              6 |             10 |
++--------+---------------------+-----------------------+----------------+----------------+
+6 rows in set (0.000 sec)
+
+MariaDB [atividade1]> select * from unidade;
++--------+--------------+--------------+
+| idunid | nome         | un_professor |
++--------+--------------+--------------+
+|      1 | vergueiro    |            1 |
+|      2 | berrini      |            2 |
+|      3 | vila mariana |            3 |
+|      4 | paulista     |            4 |
+|      5 | tatuapé      |            6 |
+|      6 | santo amaro  |            5 |
++--------+--------------+--------------+
+6 rows in set (0.000 sec)
+
+MariaDB [atividade1]> select * from disciplina where notadisciplina = 10;
++--------+-------------------+-----------------------+----------------+----------------+
+| iddisc | nome              | curso                 | disc_professor | notadisciplina |
++--------+-------------------+-----------------------+----------------+----------------+
+|      1 | banco de dados    | Ciência Da Computação |              1 |             10 |
+|      6 | segurança digital | Ciência Da Computação |              6 |             10 |
++--------+-------------------+-----------------------+----------------+----------------+
+2 rows in set (0.100 sec)
+
+MariaDB [atividade1]> select * from professor where rf = 4;
++----+------+------+----------------+
+| rf | nome | cpf  | mediaavaliacao |
++----+------+------+----------------+
+|  4 | José | 1237 |              9 |
++----+------+------+----------------+
+1 row in set (0.026 sec)
+
+MariaDB [atividade1]> select * from professor where mediaavaliacao >= 8;
++----+---------+------+----------------+
+| rf | nome    | cpf  | mediaavaliacao |
++----+---------+------+----------------+
+|  1 | João    | 1234 |              9 |
+|  2 | Maria   | 1235 |              8 |
+|  4 | José    | 1237 |              9 |
+|  6 | Antonio | 1239 |             10 |
++----+---------+------+----------------+
+4 rows in set (0.021 sec)
+
+MariaDB [atividade1]> select * from disciplina where notadisciplina != 9;
++--------+---------------------+-----------------------+----------------+----------------+
+| iddisc | nome                | curso                 | disc_professor | notadisciplina |
++--------+---------------------+-----------------------+----------------+----------------+
+|      1 | banco de dados      | Ciência Da Computação |              1 |             10 |
+|      4 | análise de sistemas | Ciência Da Computação |              4 |              7 |
+|      5 | redes               | Ciência Da Computação |              5 |              5 |
+|      6 | segurança digital   | Ciência Da Computação |              6 |             10 |
++--------+---------------------+-----------------------+----------------+----------------+
+4 rows in set (0.027 sec)
+
+MariaDB [atividade1]> select nome from disciplina where notadisciplina = 8 or disc_professor = 3;
++-----------------+
+| nome            |
++-----------------+
+| programação web |
++-----------------+
+1 row in set (0.072 sec)
+
+MariaDB [atividade1]> select nome from unidade where un_professor in(1,2,5);
++-------------+
+| nome        |
++-------------+
+| vergueiro   |
+| berrini     |
+| santo amaro |
++-------------+
+3 rows in set (0.059 sec)
+
+MariaDB [atividade1]> select nome from professor where nome like '%an%';
++----------+
+| nome     |
++----------+
+| Fernanda |
+| Ana      |
+| Antonio  |
++----------+
+3 rows in set (0.027 sec)
+
+MariaDB [atividade1]> select nome,mediaavaliacao from professor where nome like '%ia' or mediaavaliacao = 9;
++-------+----------------+
+| nome  | mediaavaliacao |
++-------+----------------+
+| João  |              9 |
+| Maria |              8 |
+| José  |              9 |
++-------+----------------+
+3 rows in set (0.001 sec)

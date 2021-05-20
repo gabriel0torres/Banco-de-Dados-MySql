@@ -1,0 +1,23 @@
+DELIMITER $$
+
+create procedure seleciona_disciplina(in quantidade int)
+BEGIN
+SELECT * from disciplina order by notadisciplina desc limit quantidade;
+END
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE procedure valoraoquadrado(inout numero int)
+begin
+
+set numero = numero * numero;
+
+end $$
+
+DELIMITER ;
+
+set @valor=9;
+call valoraoquadrado(@valor);
+SELECT @valor;

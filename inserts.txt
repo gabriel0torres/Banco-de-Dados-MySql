@@ -1,0 +1,71 @@
+//insert da tabela cliente
+
+MariaDB [atv]> insert into cliente (nome,telefone1,endereço,numero,bairro,cidade) values ('gabriel','951407252','rua prudente','31','promissão','diadema');
+Query OK, 1 row affected (0.414 sec)
+
+MariaDB [atv]> insert into cliente (nome,telefone1,endereço,numero,bairro,cidade) values ('fernando','914235102','rua de cima','25','bairro tal','sao bernardo');
+Query OK, 1 row affected, 1 warning (0.129 sec)
+
+MariaDB [atv]> insert into cliente (nome,telefone1,endereço,numero,bairro,cidade) values ('bruno','902154986','rua de baixo','1002','casa grande','santo andre');
+Query OK, 1 row affected (0.089 sec)
+
+//
+//
+//
+//
+//
+
+//insert da tabela produto
+
+
+MariaDB [atv]> insert into produto (nome,preço,cod) values ('fone','10,00','01');
+Query OK, 1 row affected, 1 warning (0.119 sec)
+
+MariaDB [atv]> insert into produto (nome,preço,cod) values ('mouse','50,00','02');
+Query OK, 1 row affected, 1 warning (0.135 sec)
+
+MariaDB [atv]> insert into produto (nome,preço,cod) values ('teclado','80,00','03');
+Query OK, 1 row affected, 1 warning (0.104 sec)
+
+MariaDB [atv]> insert into produto (nome,preço,cod) values ('monitor','200,00','04');
+Query OK, 1 row affected, 1 warning (0.067 sec)
+
+MariaDB [atv]> insert into produto (nome,preço,cod) values ('processador','500,00','05');
+Query OK, 1 row affected, 1 warning (0.132 sec)
+
+//
+//
+//
+//
+//
+
+//insert da tabela pedido
+
+
+MariaDB [atv]> insert into pedido (data,hora,cliente,produto) values ('20201114','202020','1','fone');
+Query OK, 1 row affected (0.107 sec)
+
+MariaDB [atv]> insert into pedido (data,hora,cliente,produto) values ('20201114','214523','2','mouse');
+Query OK, 1 row affected (0.097 sec)
+
+MariaDB [atv]> insert into pedido (data,hora,cliente,produto) values ('20201114','041041','3','teclado');
+Query OK, 1 row affected (0.080 sec)
+
+//
+//
+//
+//
+//
+
+//insert da tabela produto_pedido
+
+
+MariaDB [atv]> insert into produto_pedido (pedido,produto,quantidade) values ('1','fone','02');
+Query OK, 1 row affected (0.099 sec)
+
+MariaDB [atv]> insert into produto_pedido (pedido,produto,quantidade) values ('2','mouse','01');
+Query OK, 1 row affected (0.070 sec)
+
+MariaDB [atv]> insert into produto_pedido (pedido,produto,quantidade) values ('3','teclado','03');
+Query OK, 1 row affected (0.095 sec)
+

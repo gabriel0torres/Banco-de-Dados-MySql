@@ -1,0 +1,35 @@
+create table cliente (
+id int not null primary key auto_increment,
+nome char(11) not null,
+telefone1 int(11) not null,
+telefone2 int(11) null,
+endereço varchar(15) not null,
+numero int(5) not null,
+complemento varchar(8) null,
+bairro char(11) not null,
+cidade char(11) not null
+)
+
+create table pedido (
+id_pedido int not null primary key auto_increment,
+data date not null,
+hora time not null,
+cliente int not null,
+foreign key (cliente) references cliente (id),
+produto varchar(11) not null
+)
+
+create table produto_pedido(
+pedido int not null,
+foreign key (pedido) references pedido (id_pedido),
+id_produto_pedido int not null primary key auto_increment,
+produto varchar(11) not null,
+quantidade int not null
+)
+
+create table produto (
+nome varchar(11) not null,
+preço numeric(9,2) not null,
+id_produto int not null primary key auto_increment,
+cod int not null
+)
